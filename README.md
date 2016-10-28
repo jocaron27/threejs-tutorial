@@ -10,7 +10,7 @@ and nothing will work.
 3. Start the build process:
 ```
 npm install
-npm build-watch
+npm run build-watch
 ```
 
 4. In another terminal, start your app:
