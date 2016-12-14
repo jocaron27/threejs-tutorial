@@ -85,3 +85,11 @@ DELETE
 - Delete Instructor (only if no cohorts)
 - Delete Student
 ```
+
+## Evaluation
+Code modularity/readability (25%)
+Middleware (25%)
+Models (25%)
+Frontend logic and functionality (25%)
+
+Design + Bonus features (up to 10 Extra Credit points)
