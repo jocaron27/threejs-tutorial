@@ -53,6 +53,7 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 - There should be a home page containing 4 divs, 1 for each campus. 
 - Clicking on a div opens a table view  (via frontend routing or a modal) with Instructor and Student tables. 
 - TDs (each row in the table) will allow inline edits and will include a delete button.
+- See wireframes for examples (Though you may replace with a design and UX flow of your choice).
 
 ### Routes
 
@@ -75,8 +76,8 @@ POST
 ```
 PUT
 - Edit Instructor name
--Edit Student name
--Edit Student cohort
+- Edit Student name
+- Edit Student cohort
 - Reassign Instructor campus (will be disabled if no other instructors are responsible for their cohorts)
 ```
 
@@ -91,5 +92,4 @@ DELETE
 - Middleware (25%)
 - Models (25%)
 - Frontend logic and functionality (25%)
-
- - Design + Bonus features (up to 10 Extra Credit points)
+  - Design + Bonus features (up to 10 Extra Credit points)
