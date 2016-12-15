@@ -53,7 +53,7 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 - There should be a home page containing 4 divs, 1 for each campus. 
 - Clicking on a div opens a table view  (via frontend routing or a modal) with Instructor and Student tables. 
 - TDs (each row in the table) will allow inline edits and will include a delete button.
-- See wireframes for examples (Though you may replace with a design and UX flow of your choice).
+- ****See wireframes for examples (Though you may replace with a design and UX flow of your choice).***
 
 ### Routes
 
