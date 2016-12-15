@@ -5,8 +5,7 @@ Make a thing!
 ## Getting started
 
 1. Fork and clone this repo
-2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name,
-and nothing will work.
+2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name.
 3. Start the build process:
 ```
 npm install

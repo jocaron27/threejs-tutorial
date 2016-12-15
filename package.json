@@ -1,7 +1,7 @@
 {
   "name": "asdf",
   "version": "0.0.1",
-  "description": "A happy little skeleton.",
+  "description": "A review time project",
   "main": "index.js",
   "scripts": {
     "test": "mocha **/*.test.js *.test.js",
@@ -9,21 +9,11 @@
     "build-watch": "webpack -w",
     "start": "nodemon server/start.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/queerviolet/bones.git"
-  },
   "keywords": [
     "react",
     "redux",
     "skeleton"
   ],
-  "author": "Ashi Krishnan <me@ashi.works>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/queerviolet/bones/issues"
-  },
-  "homepage": "https://github.com/queerviolet/bones#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "chalk": "^1.1.3",

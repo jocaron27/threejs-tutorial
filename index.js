@@ -13,7 +13,6 @@ const nameError =
 isn't valid. If you don't change it, things won't work right.
 
 Please change it in ${__dirname}/package.json
-  ~ xoxo, bones
 ********************************************************************`
 
 const reasonableName = /^[\w\-]+$/
