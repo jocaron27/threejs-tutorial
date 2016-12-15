@@ -48,7 +48,7 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 - You can create, update and delete users (Students and Instructors)
   * To register an Instructor. You must fill out a form including their name, email and their selection of campus.
   * To register a student you must include name, email, campus and preferred cohort. 
-    * If campus or cohort are left blank for a studnet, they should be randomly assigned.
+    * If campus or cohort are left blank for a student, they should be randomly assigned.
 
 - There should be a home page containing 4 divs, 1 for each campus. 
 - Clicking on a div opens a table view  (via frontend routing or a modal) with Instructor and Student tables. 
