@@ -13,7 +13,7 @@ npm run build-watch
 ```
 
 4. In another terminal, start your app.
-5. If you navigate to the URL you should see some UI already :) You will see 
+5. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
 
 ```
 npm start
