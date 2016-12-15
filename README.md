@@ -12,7 +12,8 @@ npm install
 npm run build-watch
 ```
 
-4. In another terminal, start your app:
+4. In another terminal, start your app.
+5. If you navigate to the URL you should see some UI already :) You will see 
 
 ```
 npm start
@@ -90,5 +91,4 @@ DELETE
 - Middleware (25%)
 - Models (25%)
 - Frontend logic and functionality (25%)
-
- - Design + Bonus features (up to 10 Extra Credit points)
+- Design + Bonus features (up to 10 Extra Credit points)
