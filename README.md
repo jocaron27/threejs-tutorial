@@ -19,7 +19,7 @@ npm run build-watch
 npm start
 ```
 
-## Specs
+## Requirements
 
 ### The Premise:
 
