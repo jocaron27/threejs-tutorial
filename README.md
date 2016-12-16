@@ -6,91 +6,89 @@ Make a thing!
 
 1. Fork and clone this repo
 2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name.
-3. Start the build process:
-```
-npm install
-npm run build-watch
-```
-
-4. In another terminal, start your app.
-5. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
-
-```
-npm start
-```
+3. `npm install`
+4. Start the build process with: `npm run build-watch`
+5. In another terminal, start your app with `npm start`
+6. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
 
 ## Requirements
 
-### The Premise:
+### The Premise
 
-You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. Create a RESTful web platform that allows you to manage your four campuses - Luna, Terra, Mars & Titan.
+You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. Create a RESTful web platform that allows you to manage your students and campuses.
+
+### The tools
+
+Use at least sequelize, express, react, and redux when creating this app. You can incorporate any additional libraries or tools you wish.
 
 ### DB Design
 
-- There are 2 types of users
-  * Instructors
-  * Students
+- Students
+  * have profile info (e.g. name and email)
+  * must be assigned to a campus
 
-- Instructors 
-  * must be assigned to a single campus. 
-  * may be responsible for 1-2 cohorts of students. 
-    
-- Multiple instructors can work with the same cohort.
-
-- Students 
-  * must be assigned to a single cohort.  
-  * can only belong to one cohort. 
-  * may have multiple instructors.
-
+- Campuses
+  * have info such as a name and image
+  * can have many students assigned (may have none)
   
 ### Views and Functionality
 
-- You can create, update and delete users (Students and Instructors)
-  * To register an Instructor. You must fill out a form including their name, email and their selection of campus.
-  * To register a student you must include name, email, campus and preferred cohort. 
-    * If campus or cohort are left blank for a student, they should be randomly assigned.
+- Navigation: as a user I...
+  * will land on **Home** by default
+  * can navigate to **Campuses** from **Home**
+  * can navigate to **Students** from **Home**
+  * can navigate to view a **Single Campus** from **Campuses**
+  * can navigate to view a **Single Student** from **Students**
+  * can navigate to view a **Single Student** from **Campuses** (for any student at that campus)
+  * can navigate to view that student's **Single Campus** from **Single Student**
 
-- There should be a home page containing 4 divs, 1 for each campus. 
-- Clicking on a div opens a table view  (via frontend routing or a modal) with Instructor and Student tables. 
-- TDs (each row in the table) will allow inline edits and will include a delete button.
-- ****See wireframes for examples (Though you may replace with a design and UX flow of your choice).***
+- Views: as a user I...
+  * see a list of all campuses on the **Campuses** view
+  * see a list of all students on the **Students** view
+  * see details about a campus on the **Single Campus** view, including that campus's students
+  * see details about a student on the **Single Student** view, including that student's campus
+
+- Actions: as a user I...
+  * can create a campus
+  * can edit a campus's info, including adding/removing a student to/from that campus
+  * can delete a campus
+  * can create a student
+  * can edit a student's info, including the campus that student is assigned to
+  * can delete a student
 
 ### Routes
 
 ```
 GET 
-- all instructors by campus (i.e. "/api/instructors")
-- all students by campus
-- all students by cohort
-- all students by instructor
-- instructor by id
-- student by id 
+- all campuses
+- a campus by id
+- all students
+- a student by id
 ```
 
 ```
 POST
-- New Instructor (i.e. "/api/instructors")
-- New Student
+- new campus
+- new student
 ```
 
 ```
 PUT
-- Edit Instructor name (i.e. "/api/instructors/:instructorId")
-- Edit Student name
-- Edit Student cohort
-- Reassign Instructor campus (will be disabled if no other instructors are responsible for their cohorts)
+- updated student info for one student
+- updated campus info for one campus
 ```
 
 ```
 DELETE
-- Delete Instructor (only if no cohorts) (i.e. "/api/instructors/:instructorId")
-- Delete Student
+- a campus
+- a student
 ```
 
 ## Evaluation
+
 - Code modularity/readability (25%)
-- Middleware (25%)
 - Models (25%)
+- Routes (25%)
 - Frontend logic and functionality (25%)
 - Design + Bonus features (up to 10 Extra Credit points)
 
