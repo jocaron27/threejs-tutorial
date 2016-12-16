@@ -59,7 +59,7 @@ You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. C
 
 ```
 GET 
-- all instructors by campus
+- all instructors by campus (i.e. "/api/instructors")
 - all students by campus
 - all students by cohort
 - all students by instructor
@@ -69,13 +69,13 @@ GET
 
 ```
 POST
-- New Instructor
+- New Instructor (i.e. "/api/instructors")
 - New Student
 ```
 
 ```
 PUT
-- Edit Instructor name
+- Edit Instructor name (i.e. "/api/instructors/:instructorId")
 - Edit Student name
 - Edit Student cohort
 - Reassign Instructor campus (will be disabled if no other instructors are responsible for their cohorts)
@@ -83,7 +83,7 @@ PUT
 
 ```
 DELETE
-- Delete Instructor (only if no cohorts)
+- Delete Instructor (only if no cohorts) (i.e. "/api/instructors/:instructorId")
 - Delete Student
 ```
 
