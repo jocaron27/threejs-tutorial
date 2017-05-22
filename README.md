@@ -41,7 +41,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can navigate to **Students** from **Home**
   * can navigate to view a **Single Campus** from **Campuses**
   * can navigate to view a **Single Student** from **Students**
-  * can navigate to view a **Single Student** from **Campuses** (for any student at that campus)
+  * can navigate to view a **Single Student** from **Single Campus** (for any student at that campus)
   * can navigate to view that student's **Single Campus** from **Single Student**
 
 - Views: as a user I...
