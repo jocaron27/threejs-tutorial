@@ -31,7 +31,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 - Campuses
   * have info such as a name and image
   * can have many students assigned (may have none)
-  
+
 ### Views and Functionality
 #### See Wireframes folder for visual
 
@@ -61,7 +61,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### Routes
 
 ```
-GET 
+GET
 - all campuses
 - a campus by id
 - all students
@@ -85,6 +85,11 @@ DELETE
 - a campus
 - a student
 ```
+
+### Video Walkthrough
+Please submit a 3-minute screencast of a walk-through of the functionality *and code* for each user story in your app. E.g. for "As a user, I can create a campus", please show us that you can successfully create a campus in your app, and also the actual code that is involved in doing that (from the front-end components to the backend routes and models). We recommend using Quicktime to record the screencast (instructions on how to do that [here](https://support.apple.com/kb/PH5882?locale=en_US&viewlocale=en_US)).
+
+Once you've recorded your screencast, please *upload it to YouTube as an unlisted video*, and send us the link. This will aid us in evaluating your submission.
 
 ## Evaluation
 
