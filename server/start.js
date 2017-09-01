@@ -4,8 +4,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {resolve} = require('path')
 
-const pkg = require('../package.json')
-
 const app = express()
 
 if (process.env.NODE_ENV !== 'production') {
@@ -35,11 +33,13 @@ if (module === require.main) {
         * In 'api.js', note how `module` (this specific file - i.e. module) is different from `require.main` because this is NOT the file we started in and `require.main` is the file we started in
           ~ To help compare these objects, reference each of their `id` attributes
   */
-  const server = app.listen(
-    process.env.PORT || 1337,
-    () => {
-      console.log(`--- Started HTTP Server for ${pkg.name} ---`)      
-      console.log(`Listening on ${JSON.stringify(server.address())}`)
-    }
-  )
+
+  const PORT = 1337
+
+  const db = require('../db')
+  db.sync()
+  .then(() => {
+    console.log('db synced')
+    app.listen(PORT, () => console.log(`server listening on port ${PORT}`))
+  });
 }
