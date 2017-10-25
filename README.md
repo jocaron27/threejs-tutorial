@@ -1,7 +1,1 @@
-Boilerplate
-
-Get started with:
--Express
--Sequelize
--React
--Webpack
+Three.js Tutorial
