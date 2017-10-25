@@ -100,19 +100,19 @@ pointLight.position.z = 400;
 //add light to the scene
 scene.add(pointLight);
 
-// //Update
+//Update
 
-// //set update function to transform the scene and view
-// function update () {
-//     //render
-//     renderer.render(scene, camera);
+//set update function to transform the scene and view
+function update () {
+    //render
+    renderer.render(scene, camera);
 
-//     //schedule the next frame.
-//     requestAnimationFrame(update);
-// }
+    //schedule the next frame.
+    requestAnimationFrame(update);
+}
 
-// //schedule the first frame.
-// requestAnimationFrame(update);
+//schedule the first frame.
+requestAnimationFrame(update);
 
 //Rotate on Arrow Key Press
 
