@@ -1,30 +1,35 @@
-// import React from 'react';
+//import three.js
 const THREE = require('three');
 
+//export stateless React component
 export default function Root() {
     return null;
 }
 
-// Get the DOM element in which you want to attach the scene
+//Setup:
+
+//get the DOM element in which you want to attach the scene
 const container = document.querySelector('#container');
 
-// Create a WebGL renderer
+//create a WebGL renderer
 const renderer = new THREE.WebGLRenderer();
 
-//Set the attributes of the renderer
+//set the attributes of the renderer
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 
-//Set the renderer size
+//set the renderer size
 renderer.setSize(WIDTH, HEIGHT);
 
-// Set camera attributes
+//Adding a Camera
+
+//set camera attributes
 const VIEW_ANGLE = 45;
 const ASPECT = WIDTH / HEIGHT;
 const NEAR = 0.1;
 const FAR = 10000;
 
-//Create a camera
+//create a camera
 const camera =
 new THREE.PerspectiveCamera(
     VIEW_ANGLE,
@@ -33,17 +38,16 @@ new THREE.PerspectiveCamera(
     FAR
 );
 
-
-
-
-//Set the camera position - x, y, z
+//set the camera position - x, y, z
 camera.position.set( 0, 0, 500 );
 
 // Create a scene
 const scene = new THREE.Scene();
+
+//set the scene background
 scene.background = new THREE.Color( 0x000 );
 
-// Add the camera to the scene.
+//add the camera to the scene.
 scene.add(camera);
 
 // Attach the renderer to the DOM element.
@@ -56,58 +60,66 @@ const RADIUS = 200;
 const SEGMENTS = 50;
 const RINGS = 50;
 
-//create a group which will include our sphere and its texture meshed together
+//Create a group (which will later include our sphere and its texture meshed together)
 const globe = new THREE.Group();
-scene.add( globe );
+//add it to the scene
+scene.add(globe);
 
-//Let's create our globe. Use texture loader.
-//First we create a sphere
+//Let's create our globe using TextureLoader
+
+// instantiate a loader
 var loader = new THREE.TextureLoader();
 loader.load( 'land_ocean_ice_cloud_2048.jpg', function ( texture ) {
     //create the sphere
     var sphere = new THREE.SphereGeometry( RADIUS, SEGMENTS, RINGS );
 
-    //map the texture to the material. Read more here about materials in three.js
+    //map the texture to the material. Read more about materials in three.js docs
     var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
 
-    // Create a new mesh with
-    // sphere geometry. 
+    //create a new mesh with sphere geometry. 
     var mesh = new THREE.Mesh( sphere, material );
-    globe.add( mesh );
+
+    //add mesh to globe group
+    globe.add(mesh);
 } );
 
-
-    // // Move the Sphere back in Z so we
-//     // can see it.
+// Move the sphere back (z) so we can see it.
 globe.position.z = -300;
 
-// create a point light (probably won't make a difference since our texture is a bright image to begin with)
+//Lighting
+
+//create a point light (probably won't make a difference since our texture is a bright image to begin with)
 const pointLight =
 new THREE.PointLight(0xFFFFFF);
 
-// set its position
+//set its position
 pointLight.position.x = 10;
 pointLight.position.y = 50;
 pointLight.position.z = 400;
 
-// add to the scene
+//add light to the scene
 scene.add(pointLight);
 
-//Set update function
+//Update
+
+//set update function to transform the scene and view
 function update () {
-    //Render
+    //render
     renderer.render(scene, camera);
 
-    // Schedule the next frame.
+    //schedule the next frame.
     requestAnimationFrame(update);
 }
 
-// Schedule the first frame.
+//schedule the first frame.
 requestAnimationFrame(update);
 
-//Hard-coded animation function based on keypress
+//Rotate on Arrow Key Press
+
+//setting up our rotation based on arrow key
 function animationBuilder(direction) {
     return function animateRotate() {
+        //based on key pressed, rotate +-x or +-y
         switch (direction) {
             case 'up':
                 globe.rotation.x -= 0.2;
@@ -127,6 +139,7 @@ function animationBuilder(direction) {
     }
 }
 
+//store animation call in directions object
 var animateDirection = {
     up: animationBuilder('up'),
     down: animationBuilder('down'),
@@ -134,12 +147,14 @@ var animateDirection = {
     right: animationBuilder('right')
 }
 
+//callback function for key press event listener
 function checkKey(e) {
 
     e = e || window.event;
 
     e.preventDefault();
 
+    //based on keycode, trigger appropriate animation
     if (e.keyCode == '38') {
         animateDirection.up();
     }
@@ -154,18 +169,30 @@ function checkKey(e) {
     }
 }
 
+//on key down, call checkKey
 document.onkeydown = checkKey;
 
+//Rotate on Mouse Move
+
+//store our previous mouse move; start value is at center
 var lastMove = [window.innerWidth/2, window.innerHeight/2];
-//Mouse-move animation function
-function onDocumentMouseMove( e ) {
+
+//callback function for mouse move event listener
+function rotateOnMouseMove(e) {
     e = e || window.event;
-    const mouseX = ( e.clientX - lastMove[0]);
-    const mouseY = ( e.clientY - lastMove[1]);
-    globe.rotation.y += ( mouseX * .005);
-    globe.rotation.x += ( mouseY * .005);
+
+    //calculate difference between current and last mouse position
+    const moveX = ( e.clientX - lastMove[0]);
+    const moveY = ( e.clientY - lastMove[1]);
+
+    //rotate the globe based on distance of mouse moves (x and y)
+    globe.rotation.y += ( moveX * .005);
+    globe.rotation.x += ( moveY * .005);
+
+    //store new position in lastMove
     lastMove[0] = e.clientX;
     lastMove[1] = e.clientY;
 }
 
-document.addEventListener('mousemove', onDocumentMouseMove);
+//on mousemove, call rotateOnMouseMove
+document.addEventListener('mousemove', rotateOnMouseMove);
